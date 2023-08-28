@@ -1,0 +1,15 @@
+{
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/", "has": [{ "type": "host", "value": "buscamascota.online" }] },
+    { "source": "/buscar/(.*)", "destination": "/buscar/$1", "has": [{ "type": "host", "value": "buscamascota.online" }] },
+    { "source": "/colaborar/(.*)", "destination": "/colaborar/$1", "has": [{ "type": "host", "value": "buscamascota.online" }] },
+    { "source": "/adopciones/(.*)", "destination": "/adopciones/$1", "has": [{ "type": "host", "value": "buscamascota.online" }] },
+    { "source": "/publicar-adopcion/(.*)", "destination": "/publicar-adopcion/$1", "has": [{ "type": "host", "value": "buscamascota.online" }] },
+    { "source": "/terminos-de-uso/(.*)", "destination": "/terminos-de-uso/$1", "has": [{ "type": "host", "value": "buscamascota.online" }] },
+    { "source": "/licencia/(.*)", "destination": "/licencia/$1", "has": [{ "type": "host", "value": "buscamascota.online" }] },
+    { "source": "/reporte/(.*)", "destination": "/reporte/$1", "has": [{ "type": "host", "value": "buscamascota.online" }] },
+    { "source": "/exito/(.*)", "destination": "/exito/$1", "has": [{ "type": "host", "value": "buscamascota.online" }] },
+    { "source": "/detalle-adopcion/(.*)", "destination": "/detalle-adopcion/$1", "has": [{ "type": "host", "value": "buscamascota.online" }] },
+    { "source": "/exito-adopcion/(.*)", "destination": "/exito-adopcion/$1", "has": [{ "type": "host", "value": "buscamascota.online" }] }
+  ]
+}
