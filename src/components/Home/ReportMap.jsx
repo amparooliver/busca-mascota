@@ -1,6 +1,6 @@
 import "leaflet/dist/leaflet.css";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import {  iconCustom  } from './Icon';
+import {  iconCustom  } from '../Icon.tsx';
 
 const ReportMap = ({ zoom = 11 }: { zoom?: number }) => {
     return (
