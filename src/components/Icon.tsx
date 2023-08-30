@@ -7,9 +7,9 @@ const iconCustom = new L.Icon({
   iconSize: L.point(30, 45),
   iconAnchor: L.point(15, 45), // Half of iconSize for centering
   popupAnchor: L.point(0, -45), // Above the marker
-  shadowUrl: null, // No shadow
-  shadowSize: null,
-  shadowAnchor: null,
+  shadowUrl: undefined, // No shadow
+  shadowSize: undefined,
+  shadowAnchor: undefined,
   className: ''
 });
 
