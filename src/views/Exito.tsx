@@ -78,6 +78,10 @@ export const Exito = () => {
 			try {
 				const response = await fetch(`${API_ROUTES.GET_REPORT_BY_ID}${id}`);
 				const data = await response.json();
+
+				// Remove "http://buscamascota.roshka.com" from the picture URL
+                data.picture = data.picture.replace("http://buscamascota.roshka.com", "");
+
 				setReportData(data);
 				if (!data.is_tweeted) {
 					// tuitear
@@ -157,7 +161,7 @@ export const Exito = () => {
 							<div className="titleReport">
 								<h3 className="fs-1 fw-bold">{specie.toUpperCase() === 'OTRO' ? 'ANIMAL' : specie.toUpperCase()} {report_type.toUpperCase()}</h3>
 							</div>
-							<img src={`${picture}`} alt="imagen de mascota" className="imageReport" ref={imageRef} />
+							<img src={`${API_ROUTES.JUST_IP}${picture}`} alt="imagen de mascota" className="imageReport" ref={imageRef} />
 						</div>
 
 						{/* Detalle */}
