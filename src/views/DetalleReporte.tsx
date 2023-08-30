@@ -46,7 +46,7 @@ const DetalleReporte = () => {
                 data.picture = data.picture.replace("http://buscamascota.roshka.com", "");
 
                 setReportData(data);
-                console.log("@@", data);
+                //console.log("@@", data);
             } catch (error) {
                 console.error("Error fetching report data:", error);
             }
