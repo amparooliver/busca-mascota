@@ -41,7 +41,12 @@ const DetalleReporte = () => {
             try {
                 const response = await fetch(`${API_ROUTES.GET_REPORT_BY_ID}${id}`);
                 const data = await response.json();
+
+                // Remove "http://buscamascota.roshka.com" from the picture URL
+                data.picture = data.picture.replace("http://buscamascota.roshka.com", "");
+
                 setReportData(data);
+                console.log("@@", data);
             } catch (error) {
                 console.error("Error fetching report data:", error);
             }
@@ -101,7 +106,7 @@ const DetalleReporte = () => {
                         <h3 className="fs-1 fw-bold">{specie.toUpperCase() === 'OTRO' ? 'ANIMAL' : specie.toUpperCase()} {report_type.toUpperCase()}</h3>
                     </div>
                     <div className="pt-1 bg-white">
-                        <img src={`${picture}`} alt="imagen de mascota" className="imageReport" ref={imageRef} />
+                        <img src={`${API_ROUTES.JUST_IP}${picture}`} alt="imagen de mascota" className="imageReport" ref={imageRef} />
                     </div>
                 </div>
 
