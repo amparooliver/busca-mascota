@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios'
 import Swal from 'sweetalert2';
 
+const SUPPORTED_IMAGE_TYPES = ["image/jpeg", "image/png"]; // Definir tipos de imagenes soportados
+
 interface ILatLng {
 	lat: number;
 	lng: number;
@@ -95,6 +97,18 @@ const Publicar = () => {
 
 	const handleChange = (event: any) => {
 		const { id, value, files } = event.target
+		if (id === 'picture' && files && files.length > 0) {
+            const selectedFileType = files[0].type;
+            if (!SUPPORTED_IMAGE_TYPES.includes(selectedFileType)) {
+              Swal.fire({
+                icon: "error",
+                title: "Imagen No Compatible",
+                text: "Por favor, seleccione un tipo de imagen compatible (JPEG, PNG).",
+              });
+              setReport({ ...report, [id]: { value: {}, required: true } });
+              return;
+            }
+          }
 		let currentValue = files ? files[0] : value
 		if (id == 'accept_terms') currentValue = event.target.checked
 		setReport({ ...report, [id]: { ...report[id as keyof typeof report], value: currentValue } })
@@ -222,7 +236,10 @@ const Publicar = () => {
 							Foto: *
 						</label>
 						<input onChange={handleChange} type='file' id='picture' accept="image/*" className='form-control' />
-						<p className='mb-0 mt-2 small text-secondary'>Se necesita una imagen de la mascota para evitar confusiones y que sea más sencillo reconocerla</p>
+						<p className='mb-0 mt-2 small text-secondary'>Se necesita una imagen de la mascota para evitar confusiones y que sea más sencillo reconocerla
+						<br />
+                            Tipos de imagen soportados: JPEG, PNG.
+						</p>
 					</div>
 				</div>
 
